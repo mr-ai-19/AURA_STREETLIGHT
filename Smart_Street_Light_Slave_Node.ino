@@ -1,6 +1,6 @@
 // ============================================================
 //  AURA — Smart Street Light  |  SLAVE NODE
-//  Avenbot Technologies Private Limited
+//  
 //
 //  Hardware : ESP8266 + SX1278 LoRa + Relay + Button + Buzzer
 //  Protocol : Compatible with Smart_Street_Light_Head_Node.ino
@@ -68,9 +68,7 @@ void sendLoRa(const String& msg)
   Serial.println(packet);
 }
 
-// ============================================================
-//  setup
-// ============================================================
+
 void setup()
 {
   Serial.begin(115200);
@@ -115,12 +113,7 @@ void receiveLoRa()
   Serial.print("[RX] ");
   Serial.println(raw);
 
-  // ── Extract the command portion ──────────────────────────
-  // Accept:
-  //   "S1:ON"  → addressed to this node
-  //   "ON"     → broadcast (no prefix, no colon)
-  // Ignore:
-  //   "S2:ON"  → addressed to a different slave
+ 
 
   String myPrefix = String(NODE_ID) + ":";
   String cmd      = "";
